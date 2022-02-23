@@ -15,12 +15,35 @@
 
 <body>
     <header>
-        <h1>Todo List</h1>
+        <h1>todos</h1>
     </header>
-    <form>
-        <input type="text" class="form-input" placeholder="What needs to be done?" autofocus spellcheck="false"></input>
-    </form>
-
+    <main>
+        <div class="todos-container">
+            <form>
+                <input type="text" class="form-input" placeholder="What needs to be done?" autofocus spellcheck="false"></input>
+            </form>
+            <ul class="todo-list">
+                <template id="todos-template">
+                    <li>
+                        <input type="checkbox">
+                        <span class="todo-title"></span>
+                        <button type="button" class="remove-todo">❌</button>
+                    </li>
+                </template>
+            </ul>
+            <ul class="status">
+                <li>
+                    <span id="items-left">TEST</span>
+                    <button type="button" id="all">All</button>
+                    <button type="button" id="active">Active</button>
+                    <button type="button" id="completed">Completed</button>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <small>Written by Alex and Simon 2022</small>
+    </footer>
 </body>
 
 </html>
