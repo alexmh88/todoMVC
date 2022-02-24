@@ -24,9 +24,6 @@ form {
 
 form input {
     font-style: italic;
-}
-
-.form-input {
     background: white;
     border: none;
     outline: none;
