@@ -20,26 +20,29 @@
     <main>
         <div class="todos-container">
             <form class="todo-form">
+                <button type="button" class="arrow">🔽</button>
                 <input type="text" class="todo-input" placeholder="What needs to be done?" autofocus spellcheck="false"></input>
             </form>
             <ul class="todo-list">
                 <template id="todos-template">
                     <li class="task">
                         <input type="checkbox" class="check">
-                        <span class="todo-title"></span>
+                        <label class="todo-title"></label>
                         <button type="button" class="remove-todo">❌</button>
                     </li>
                 </template>
             </ul>
-            <ul class="status">
-                <li>
-                    <span id="items-left"></span>
-                    <button type="button" id="all">All</button>
-                    <button type="button" id="active">Active</button>
-                    <button type="button" id="completed">Completed</button>
-                    <button type="button" id="clear-completed">Clear completed</button>
-                </li>
-            </ul>
+            <div class="filters">
+                <span id="items-left"></span>
+                <ul class="status">
+                    <li class="status-buttons">
+                        <button type="button" id="all">All</button>
+                        <button type="button" id="active">Active</button>
+                        <button type="button" id="completed">Completed</button>
+                    </li>
+                </ul>
+                <button type="button" id="clear-completed">Clear completed</button>
+            </div>
         </div>
     </main>
     <footer>

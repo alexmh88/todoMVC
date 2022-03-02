@@ -10,6 +10,7 @@ function startTodoMVC() {
     const todoForm = document.querySelector('.todo-form');
     const todoDelete = document.querySelector('.remove-todo');
     const todoCheck = document.querySelector('.check');
+    const arrow = document.querySelector('.arrow');
     const all = document.querySelector('#all');
     const active = document.querySelector('#active');
     const completed = document.querySelector('#completed');
@@ -41,17 +42,19 @@ function startTodoMVC() {
             todoInput.value = ""; //remove text input
         }
     });
+    /*
+        todoList.addEventListener('click', (e) => {
+            const item = e.target;
+            item.remove();
+        });
+    */
 
-    todoList.addEventListener('click', (e) => {
-        const item = e.target;
-        item.remove();
-    });
-    
 
 
 
     //method for activating all buttons
     function activateAllButtons() {
+        arrow.hidden = false;
         all.hidden = false;
         active.hidden = false;
         completed.hidden = false;
@@ -60,6 +63,7 @@ function startTodoMVC() {
 
     //method for hiding all buttons
     function hideButtons() {
+        arrow.hidden = true;
         all.hidden = true;
         active.hidden = true;
         completed.hidden = true;
