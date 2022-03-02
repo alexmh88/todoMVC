@@ -10,6 +10,7 @@ function startTodoMVC() {
     let todoForm = document.querySelector('.todo-form');
     let todoCheck = document.querySelector('.check');
     const arrow = document.querySelector('.arrow');
+    const myArrow = document.querySelector('.my-arrow');
     const all = document.querySelector('#all');
     const active = document.querySelector('#active');
     const completed = document.querySelector('#completed');
@@ -66,7 +67,7 @@ function startTodoMVC() {
     //method for activating all buttons
     function activateAllButtons() {
         itemsLeft.hidden = false;
-        arrow.hidden = false;
+        myArrow.hidden = false;
         all.hidden = false;
         active.hidden = false;
         completed.hidden = false;
@@ -76,7 +77,7 @@ function startTodoMVC() {
     //method for hiding all buttons
     function hideButtons() {
         itemsLeft.hidden = true;
-        arrow.hidden = true;
+        myArrow.hidden = true;
         all.hidden = true;
         active.hidden = true;
         completed.hidden = true;
