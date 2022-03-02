@@ -1,5 +1,6 @@
 startTodoMVC();
 
+
 function startTodoMVC() {
     //Remove template
     let todoTemplate = document.querySelector('#todos-template');
@@ -7,6 +8,8 @@ function startTodoMVC() {
 
     //Selectors
     const todoForm = document.querySelector('.todo-form');
+    const todoDelete = document.querySelector('.remove-todo');
+    const todoCheck = document.querySelector('.check');
     const all = document.querySelector('#all');
     const active = document.querySelector('#active');
     const completed = document.querySelector('#completed');
@@ -38,6 +41,14 @@ function startTodoMVC() {
             todoInput.value = ""; //remove text input
         }
     });
+
+    todoList.addEventListener('click', (e) => {
+        const item = e.target;
+        item.remove();
+    });
+    
+
+
 
     //method for activating all buttons
     function activateAllButtons() {
