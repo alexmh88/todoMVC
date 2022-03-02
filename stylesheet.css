@@ -55,6 +55,11 @@ h1 {
 
 .arrow {
     grid-column: 1;
+    border: none;
+}
+
+.arrow+label:before {
+    content: '🔽';
     font-size: 24px;
 }
 

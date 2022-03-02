@@ -7,9 +7,8 @@ function startTodoMVC() {
     todoTemplate.remove();
 
     //Selectors
-    const todoForm = document.querySelector('.todo-form');
-    const todoDelete = document.querySelector('.remove-todo');
-    const todoCheck = document.querySelector('.check');
+    let todoForm = document.querySelector('.todo-form');
+    let todoCheck = document.querySelector('.check');
     const arrow = document.querySelector('.arrow');
     const all = document.querySelector('#all');
     const active = document.querySelector('#active');
@@ -23,6 +22,7 @@ function startTodoMVC() {
     let textInput = "";
     let items = 0;
     let textHTML = " items left";
+    let nrClick = 0;
 
     //hide buttons when list is empty
     hideButtons();
@@ -40,20 +40,33 @@ function startTodoMVC() {
             items++;
             itemsLeft.textContent = items + textHTML;
             todoInput.value = ""; //remove text input
+            todoLi.querySelector('.remove-todo').addEventListener('click', (event) => {
+                event.preventDefault();
+                items--;
+                itemsLeft.textContent = items + textHTML;
+                if (items === 0) {
+                    hideButtons();
+                }
+                todoLi.remove();
+            });
         }
     });
-    /*
-        todoList.addEventListener('click', (e) => {
-            const item = e.target;
-            item.remove();
-        });
-    */
 
-
-
+    arrow.addEventListener('change', (event) => {
+        event.preventDefault();
+        let taskList = todoList.querySelectorAll('li');
+        for (let task of taskList) {
+            if (arrow.checked == true) {
+                task.querySelector('.check').checked = true;
+            } else {
+                task.querySelector('.check').checked = false;
+            }
+        }
+    });
 
     //method for activating all buttons
     function activateAllButtons() {
+        itemsLeft.hidden = false;
         arrow.hidden = false;
         all.hidden = false;
         active.hidden = false;
@@ -63,6 +76,7 @@ function startTodoMVC() {
 
     //method for hiding all buttons
     function hideButtons() {
+        itemsLeft.hidden = true;
         arrow.hidden = true;
         all.hidden = true;
         active.hidden = true;
@@ -71,25 +85,3 @@ function startTodoMVC() {
     }
 
 }
-
-
-/*todoInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-        addTodo
-    }
-});
-
-function addTodo(event){
-    event.preventDefault();
-    //div todo
-    const todoDiv = document.createElement("div");
-    todoDiv.classList.add("todo");
-
-    //li
-    const newTodo = document.createElement("li");
-    newTodo.innerText = todoInput.value;
-    newTodo.classList.add("todo-item");
-    todoDiv.appendChild(newTodo);
-
-    todoList.appendChild(todoDiv);
-}*/
