@@ -55,10 +55,13 @@ h1 {
 
 .arrow {
     grid-column: 1;
-    border: none;
 }
 
-.arrow+label:before {
+.my-arrow input {
+    display: none;
+}
+
+.arrow+span:before {
     content: '🔽';
     font-size: 24px;
 }

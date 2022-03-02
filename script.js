@@ -22,7 +22,6 @@ function startTodoMVC() {
     let textInput = "";
     let items = 0;
     let textHTML = " items left";
-    let nrClick = 0;
 
     //hide buttons when list is empty
     hideButtons();
