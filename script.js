@@ -49,6 +49,14 @@ function startTodoMVC() {
                 }
                 todoLi.remove();
             });
+            clear.addEventListener('click', (event) => {
+                event.preventDefault();
+                    if (todoLi.querySelector('.check').checked == true) {
+                        todoLi.remove();
+                        items--;
+                        itemsLeft.textContent = items + textHTML;
+                    }
+            }); 
         }
     });
 
@@ -63,6 +71,7 @@ function startTodoMVC() {
             }
         }
     });
+
 
     //method for activating all buttons
     function activateAllButtons() {
