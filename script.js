@@ -76,7 +76,7 @@ function startTodoMVC() {
                 }
                 task.remove();
             }
-    }); 
+    });
 
     completed.addEventListener('click', (event) => {
         event.preventDefault();
@@ -84,9 +84,8 @@ function startTodoMVC() {
         for (let task of todoLi) {
             if (task.querySelector('.check').checked == false) {
                 task.style.display = "none";
-            }
-            else if (task.querySelector('.check').checked == true) {
-                task.style.display = "block";
+            } else if (task.querySelector('.check').checked == true) {
+                task.style.display = "";
             }
         }
     });
@@ -97,9 +96,8 @@ function startTodoMVC() {
         for (let task of todoLi) {
             if (task.querySelector('.check').checked == true) {
                 task.style.display = "none";
-            }
-            else if (task.querySelector('.check').checked == false) {
-                task.style.display = "block";
+            } else if (task.querySelector('.check').checked == false) {
+                task.style.display = "";
             }
         }
     });
@@ -109,10 +107,9 @@ function startTodoMVC() {
         let todoLi = todoList.querySelectorAll('li');
         for (let task of todoLi) {
             if (task.querySelector('.check').checked == true) {
-                task.style.display = "block";
-            }
-            else if (task.querySelector('.check').checked == false) {
-                task.style.display = "block";
+                task.style.display = "";
+            } else if (task.querySelector('.check').checked == false) {
+                task.style.display = "";
             }
         }
     });
