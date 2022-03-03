@@ -13,7 +13,7 @@ function startTodoMVC() {
     const active = document.querySelector('#active');
     const completed = document.querySelector('#completed');
     const clear = document.querySelector('#clear-completed');
-    const checkBox = document.querySelector(".check");
+    //const checkBox = document.querySelectorAll('.check');
     let todoInput = document.querySelector('.todo-input');
     let todoList = document.querySelector('.todo-list');
     let itemsLeft = document.querySelector('#items-left');
@@ -41,38 +41,41 @@ function startTodoMVC() {
             todoInput.value = ""; //remove text input
             todoLi.querySelector('.remove-todo').addEventListener('click', (event) => {
                 event.preventDefault();
-                items--;
-                itemsLeft.textContent = items + textHTML;
-                if (items === 0) {
-                    hideButtons();
+                if (todoLi.querySelector('.check').checked == false) {
+                    items--;
+                    itemsLeft.textContent = items + textHTML;
                 }
                 todoLi.remove();
+            });
+            todoLi.querySelector('.check').addEventListener('change', (event) => {
+                event.preventDefault();
+                if (todoLi.querySelector('.check').checked == true) {
+                    items--;
+                    clear.hidden = false;
+                } else if (todoLi.querySelector('.check').checked == false) {
+                    items++;
+                }
+                itemsLeft.textContent = items + textHTML;
             });
         }
     });
 
-
     arrow.addEventListener('change', (event) => {
         event.preventDefault();
+        items = 0;
         let taskList = todoList.querySelectorAll('li');
         for (let task of taskList) {
             if (arrow.checked == true) {
                 task.querySelector('.check').checked = true;
+                items = 0;
+                clear.hidden = false;
             } else {
                 task.querySelector('.check').checked = false;
+                items++;
+                clear.hidden = true;
             }
         }
-    });
-
-    checkBox.addEventListener('change', (event) => {
-        event.preventDefault();
-        let taskList = todoList.querySelectorAll('li');
-        for (let task in taskList) {
-            if (checkBox.checked == true) {
-                items--;
-                itemsLeft.textContent = items + textHTML;
-            }
-        }
+        itemsLeft.textContent = items + textHTML;
     });
 
     clear.addEventListener('click', (event) => {
@@ -80,8 +83,6 @@ function startTodoMVC() {
         let todoLi = todoList.querySelectorAll('li');
         for (let task of todoLi)
             if (task.querySelector('.check').checked == true) {
-                items--;
-                itemsLeft.textContent = items + textHTML;
                 if (items === 0) {
                     hideButtons();
                 }
@@ -125,7 +126,6 @@ function startTodoMVC() {
         }
     });
 
-
     //method for activating all buttons
     function activateAllButtons() {
         itemsLeft.hidden = false;
@@ -133,7 +133,6 @@ function startTodoMVC() {
         all.hidden = false;
         active.hidden = false;
         completed.hidden = false;
-        clear.hidden = false;
     }
 
     //method for hiding all buttons
