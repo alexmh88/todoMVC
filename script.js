@@ -1,6 +1,5 @@
 startTodoMVC();
 
-
 function startTodoMVC() {
     //Remove template
     let todoTemplate = document.querySelector('#todos-template');
@@ -8,13 +7,13 @@ function startTodoMVC() {
 
     //Selectors
     let todoForm = document.querySelector('.todo-form');
-    let todoCheck = document.querySelector('.check');
     const arrow = document.querySelector('.arrow');
     const myArrow = document.querySelector('.my-arrow');
     const all = document.querySelector('#all');
     const active = document.querySelector('#active');
     const completed = document.querySelector('#completed');
     const clear = document.querySelector('#clear-completed');
+    const checkBox = document.querySelector(".check");
     let todoInput = document.querySelector('.todo-input');
     let todoList = document.querySelector('.todo-list');
     let itemsLeft = document.querySelector('#items-left');
@@ -52,6 +51,7 @@ function startTodoMVC() {
         }
     });
 
+
     arrow.addEventListener('change', (event) => {
         event.preventDefault();
         let taskList = todoList.querySelectorAll('li');
@@ -60,6 +60,17 @@ function startTodoMVC() {
                 task.querySelector('.check').checked = true;
             } else {
                 task.querySelector('.check').checked = false;
+            }
+        }
+    });
+
+    checkBox.addEventListener('change', (event) => {
+        event.preventDefault();
+        let taskList = todoList.querySelectorAll('li');
+        for (let task in taskList) {
+            if (checkBox.checked == true) {
+                items--;
+                itemsLeft.textContent = items + textHTML;
             }
         }
     });
