@@ -49,14 +49,6 @@ function startTodoMVC() {
                 }
                 todoLi.remove();
             });
-            clear.addEventListener('click', (event) => {
-                event.preventDefault();
-                    if (todoLi.querySelector('.check').checked == true) {
-                        todoLi.remove();
-                        items--;
-                        itemsLeft.textContent = items + textHTML;
-                    }
-            }); 
         }
     });
 
@@ -68,6 +60,59 @@ function startTodoMVC() {
                 task.querySelector('.check').checked = true;
             } else {
                 task.querySelector('.check').checked = false;
+            }
+        }
+    });
+
+    clear.addEventListener('click', (event) => {
+        event.preventDefault();
+        let todoLi = todoList.querySelectorAll('li');
+        for (let task of todoLi)
+            if (task.querySelector('.check').checked == true) {
+                items--;
+                itemsLeft.textContent = items + textHTML;
+                if (items === 0) {
+                    hideButtons();
+                }
+                task.remove();
+            }
+    }); 
+
+    completed.addEventListener('click', (event) => {
+        event.preventDefault();
+        let todoLi = todoList.querySelectorAll('li');
+        for (let task of todoLi) {
+            if (task.querySelector('.check').checked == false) {
+                task.style.display = "none";
+            }
+            else if (task.querySelector('.check').checked == true) {
+                task.style.display = "block";
+            }
+        }
+    });
+
+    active.addEventListener('click', (event) => {
+        event.preventDefault();
+        let todoLi = todoList.querySelectorAll('li');
+        for (let task of todoLi) {
+            if (task.querySelector('.check').checked == true) {
+                task.style.display = "none";
+            }
+            else if (task.querySelector('.check').checked == false) {
+                task.style.display = "block";
+            }
+        }
+    });
+
+    all.addEventListener('click', (event) => {
+        event.preventDefault();
+        let todoLi = todoList.querySelectorAll('li');
+        for (let task of todoLi) {
+            if (task.querySelector('.check').checked == true) {
+                task.style.display = "block";
+            }
+            else if (task.querySelector('.check').checked == false) {
+                task.style.display = "block";
             }
         }
     });
