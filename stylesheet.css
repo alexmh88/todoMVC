@@ -155,9 +155,13 @@ button {
     text-align: left;
 }
 
-#all {
+.filters button:focus {
     border: 1px solid rgba(100, 28, 28, 0.5);
     border-radius: 0.4em;
+}
+
+#clear-completed:hover {
+    text-decoration: underline;
 }
 
 .status-buttons {

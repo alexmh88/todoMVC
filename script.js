@@ -13,7 +13,6 @@ function startTodoMVC() {
     const active = document.querySelector('#active');
     const completed = document.querySelector('#completed');
     const clear = document.querySelector('#clear-completed');
-    //const checkBox = document.querySelectorAll('.check');
     let todoInput = document.querySelector('.todo-input');
     let todoList = document.querySelector('.todo-list');
     let itemsLeft = document.querySelector('#items-left');
