@@ -188,24 +188,28 @@ footer {
 /*Mobile*/
 
 
-/*
-@media(max-width: 600px) {
+
+@media only screen and (max-width: 600px) {
     .todos-container {
         justify-self: center;
         align-items: center;
         max-width: 300px;
         width: 100%;
     }
+    input::placeholder {
+        font-size: 21px;
+        }
 }
 
-*/
+
 
 
 /*tablet and small laptops*/
 
-@media(min-width: 600px) {}
+@media only screen and (min-width: 610px) {}
+
 
 
 /*Bigger devices*/
 
-@media (min-width: 1000px) {}
+@media only screen and (min-width: 1000px) {}
