@@ -187,8 +187,6 @@ footer {
 
 /*Mobile*/
 
-
-
 @media only screen and (max-width: 600px) {
     .todos-container {
         justify-self: center;
@@ -198,18 +196,5 @@ footer {
     }
     input::placeholder {
         font-size: 21px;
-        }
+    }
 }
-
-
-
-
-/*tablet and small laptops*/
-
-@media only screen and (min-width: 610px) {}
-
-
-
-/*Bigger devices*/
-
-@media only screen and (min-width: 1000px) {}
